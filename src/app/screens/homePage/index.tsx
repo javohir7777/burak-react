@@ -1,9 +1,10 @@
-import ActiveUsers from "./ActiveUsers copy";
+import ActiveUsers from "./ActiveUsers";
 import Advertisement from "./Advertisement";
 import Events from "./Events";
 import NewDishes from "./NewDishes";
 import PopularDishes from "./PopularDishes";
 import Statistics from "./Statistics";
+import "../../../css/home.css";
 
 export default function HomePage() {
   return (
@@ -13,7 +14,7 @@ export default function HomePage() {
       <NewDishes />
       <Advertisement />
       <ActiveUsers />
-      <Events /> 
+      <Events />
     </div>
   );
 }
