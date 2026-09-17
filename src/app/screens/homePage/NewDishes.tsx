@@ -22,41 +22,45 @@ export default function NewDishes() {
           <Box className="category-title">Popular Dishes</Box>
           <Stack className="cards-frame">
             <CssVarsProvider>
-              {newDishes.map((ele, index) => {
-                return (
-                  <Card key={index} variant="outlined" className={"card"}>
-                    <CardOverflow>
-                      <div className="product-sale">Normal size</div>
-                      <AspectRadio ratio="1">
-                        <img src={ele.imagePath} alt="" />
-                      </AspectRadio>
-                    </CardOverflow>
+              {newDishes.length !== 0 ? (
+                newDishes.map((ele, index) => {
+                  return (
+                    <Card key={index} variant="outlined" className={"card"}>
+                      <CardOverflow>
+                        <div className="product-sale">Normal size</div>
+                        <AspectRadio ratio="1">
+                          <img src={ele.imagePath} alt="" />
+                        </AspectRadio>
+                      </CardOverflow>
 
-                    <CardOverflow variant="soft" className="product-detail">
-                      <JoyStack className="info">
-                        <JoyStack
-                          sx={{ display: "flex", flexDirection: "row" }}
-                        >
-                          <Typography className={"title"}>
-                            {ele.productName}
-                          </Typography>
-                          <Divider width="2" height="24" bg="#d9d9d9" />
-                          <Typography className={"price"}>$12</Typography>
-                        </JoyStack>
+                      <CardOverflow variant="soft" className="product-detail">
+                        <JoyStack className="info">
+                          <JoyStack
+                            sx={{ display: "flex", flexDirection: "row" }}
+                          >
+                            <Typography className={"title"}>
+                              {ele.productName}
+                            </Typography>
+                            <Divider width="2" height="24" bg="#d9d9d9" />
+                            <Typography className={"price"}>$12</Typography>
+                          </JoyStack>
 
-                        <JoyStack>
-                          <Typography className={"views"}>
-                            20
-                            <VisibilityIcon
-                              style={{ fontSize: 20, marginLeft: "5px" }}
-                            />
-                          </Typography>
+                          <JoyStack>
+                            <Typography className={"views"}>
+                              20
+                              <VisibilityIcon
+                                style={{ fontSize: 20, marginLeft: "5px" }}
+                              />
+                            </Typography>
+                          </JoyStack>
                         </JoyStack>
-                      </JoyStack>
-                    </CardOverflow>
-                  </Card>
-                );
-              })}
+                      </CardOverflow>
+                    </Card>
+                  );
+                })
+              ) : (
+                <Box className="no-data">New porducts are not available!</Box>
+              )}
             </CssVarsProvider>
           </Stack>
         </Stack>
