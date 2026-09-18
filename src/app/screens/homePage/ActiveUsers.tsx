@@ -1,5 +1,4 @@
 import Card from "@mui/joy/Card";
-import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 
 import { CssVarsProvider } from "@mui/joy/styles";
