@@ -27,7 +27,6 @@ export default function ActiveUsers() {
             <CssVarsProvider>
               {topUsers.length !== 0 ? (
                 topUsers.map((ele: Member) => {
-                  console.log(ele.memberImage);
                   const imagePath = `${ele.memberImage ? `${serverApi}/${ele.memberImage}` : "/icons/restaurant.svg"}`;
                   return (
                     <Card key={ele._id} className={"card"} variant="solid">
@@ -43,7 +42,7 @@ export default function ActiveUsers() {
                   );
                 })
               ) : (
-                <Box className="no-data">New Active Users! </Box>
+                <Box className="no-data">New Active Users!</Box>
               )}
             </CssVarsProvider>
           </Stack>
