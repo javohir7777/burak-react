@@ -32,7 +32,7 @@ export default function HomePage() {
       .getProducts({
         page: 1,
         limit: 4,
-        order: "productViews",
+        order: "productViwes",
         productCollection: ProductCollection.DISH,
       })
       .then((data) => setPopularDishes(data))
