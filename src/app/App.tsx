@@ -10,41 +10,31 @@ import "../css/navbar.css";
 import "../css/footer.css";
 import HelpPage from "./screens/helpPage";
 import HomePage from "./screens/homePage";
-import { CartItem } from "../lib/types/search";
-import { useState } from "react";
+import useBaket from "./hooks/useBaket";
 
 function App() {
   const location = useLocation();
 
-  const cartJson: string | null = localStorage.getItem("cartData");
-  const currentCart = cartJson ? JSON.parse(cartJson) : [];
-  const [cardItems, setCardItems] = useState<CartItem[]>(currentCart);
-
-  const onAdd = (input: CartItem) => {
-    const exist: any = cardItems.find(
-      (item: CartItem) => item._id === input._id,
-    );
-    if (exist) {
-      const cardUpdate = cardItems.map((item: CartItem) =>
-        item._id === input._id
-          ? { ...exist, quantity: exist.quantity + 1 }
-          : item,
-      );
-      setCardItems(cardUpdate);
-      localStorage.setItem("cartData", JSON.stringify(cardUpdate));
-    } else {
-      const cardUpdate = [...cardItems, { ...input }];
-      setCardItems(cardUpdate);
-      localStorage.setItem("cartData", JSON.stringify(cardUpdate));
-    }
-  };
+  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBaket();
 
   return (
     <>
       {location.pathname === "/" ? (
-        <HomeNavbar cardItems={cardItems} />
+        <HomeNavbar
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+          onDeleteAll={onDeleteAll}
+        />
       ) : (
-        <OtherNavbar cardItems={cardItems} />
+        <OtherNavbar
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+          onDeleteAll={onDeleteAll}
+        />
       )}
       <Switch>
         <Route path="/products">
