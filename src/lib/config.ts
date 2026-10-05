@@ -1,6 +1,6 @@
 export const serverApi: string = `${process.env.REACT_APP_API_URL}`;
 
-export const Message = {
+export const Messages = {
   error1: "Somthing went wrong!",
   error2: "Pleace login first!",
   error3: "Pleace fulfill all inputs!",
